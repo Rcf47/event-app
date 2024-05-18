@@ -16,6 +16,17 @@ import { eventFormSchema } from "@/lib/validator";
 import { z } from "zod";
 import { eventDefaultValues } from "@/constants";
 import Dropdown from "../Dropdown/Dropdown";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 type EventFormProps = {
   userId: string;
