@@ -6,7 +6,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ICategory } from "@/lib/database/models/category.model";
-import { useState } from "react";
+import { startTransition, useState } from "react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -18,6 +18,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { Input } from "@/components/ui/input";
 
 type DropdownProps = {
   value?: string;
@@ -26,6 +27,11 @@ type DropdownProps = {
 
 function Dropdown({ value, onChangeHandler }: DropdownProps) {
   const [categories, setCategories] = useState<ICategory[]>([]);
+  const [newCategory, setNewCategory] = useState<string>("");
+
+  const handleAddCategory = () => {
+    console.log("hello my friend");
+  };
 
   return (
     <Select onValueChange={onChangeHandler} defaultValue={value}>
@@ -51,15 +57,23 @@ function Dropdown({ value, onChangeHandler }: DropdownProps) {
           </AlertDialogTrigger>
           <AlertDialogContent className="bg-white">
             <AlertDialogHeader>
-              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogTitle>New Category</AlertDialogTitle>
               <AlertDialogDescription>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
+                <Input
+                  type="text"
+                  placeholder="Category name"
+                  className="input-field mt-3"
+                  onChange={(e) => setNewCategory(e.target.value)}
+                />
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction>Continue</AlertDialogAction>
+              <AlertDialogAction
+                onClick={() => startTransition(handleAddCategory)}
+              >
+                Add
+              </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
