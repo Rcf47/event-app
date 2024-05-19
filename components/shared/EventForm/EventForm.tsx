@@ -19,6 +19,10 @@ import Dropdown from "../Dropdown/Dropdown";
 import { Textarea } from "@/components/ui/textarea";
 import FileUploader from "../FileUploader/FileUploader";
 import { useState } from "react";
+import Image from "next/image";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 type EventFormProps = {
   userId: string;
@@ -112,6 +116,103 @@ function EventForm({ userId, type }: EventFormProps) {
                     imageUrl={field.value}
                     setFiles={setFiles}
                   />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <div className="flex flex-col gap-5 md:flex-row">
+          <FormField
+            control={form.control}
+            name="location"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormLabel>Title</FormLabel>
+                <FormControl>
+                  <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
+                    <Image
+                      src="/assets/icons/location-grey.svg"
+                      alt="calendar"
+                      width={24}
+                      height={24}
+                    />
+                    <Input
+                      placeholder="Event location or Online"
+                      {...field}
+                      className="input-field"
+                    />
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <div className="flex flex-col gap-5 md:flex-row">
+          <FormField
+            control={form.control}
+            name="startDateTime"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormLabel>Title</FormLabel>
+                <FormControl>
+                  <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
+                    <Image
+                      src="/assets/icons/calendar.svg"
+                      alt="calendar"
+                      width={24}
+                      height={24}
+                      className="filter-grey"
+                    />
+                    <p className="ml-3 whitespace-nowrap text-grey-600">
+                      Start Date:
+                    </p>
+                    <DatePicker
+                      selected={field.value}
+                      onChange={(date: Date) => field.onChange(date)}
+                      locale="ru-RU"
+                      showTimeSelect
+                      timeFormat="HH:mm"
+                      timeInputLabel="Time:"
+                      dateFormat="dd/MM/yyyy HH:mm"
+                      wrapperClassName="datePicker"
+                    />
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="endDateTime"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormLabel>Title</FormLabel>
+                <FormControl>
+                  <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
+                    <Image
+                      src="/assets/icons/calendar.svg"
+                      alt="calendar"
+                      width={24}
+                      height={24}
+                      className="filter-grey"
+                    />
+                    <p className="ml-3 whitespace-nowrap text-grey-600">
+                      End Date:
+                    </p>
+                    <DatePicker
+                      selected={field.value}
+                      onChange={(date: Date) => field.onChange(date)}
+                      locale="ru-RU"
+                      showTimeSelect
+                      timeFormat="HH:mm"
+                      timeInputLabel="Time:"
+                      dateFormat="dd/MM/yyyy HH:mm"
+                      wrapperClassName="datePicker"
+                    />
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
