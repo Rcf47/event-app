@@ -57,7 +57,6 @@ function EventForm({ userId, type }: EventFormProps) {
             name="title"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Title</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Event Title"
@@ -92,7 +91,6 @@ function EventForm({ userId, type }: EventFormProps) {
             name="description"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Title</FormLabel>
                 <FormControl className="h-72">
                   <Textarea
                     placeholder="Description"
@@ -109,7 +107,6 @@ function EventForm({ userId, type }: EventFormProps) {
             name="imageUrl"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Title</FormLabel>
                 <FormControl className="h-72">
                   <FileUploader
                     onFieldChange={field.onChange}
@@ -128,7 +125,6 @@ function EventForm({ userId, type }: EventFormProps) {
             name="location"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Title</FormLabel>
                 <FormControl>
                   <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
                     <Image
@@ -155,7 +151,6 @@ function EventForm({ userId, type }: EventFormProps) {
             name="startDateTime"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Title</FormLabel>
                 <FormControl>
                   <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
                     <Image
@@ -188,7 +183,6 @@ function EventForm({ userId, type }: EventFormProps) {
             name="endDateTime"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>Title</FormLabel>
                 <FormControl>
                   <div className="flex-center h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
                     <Image
