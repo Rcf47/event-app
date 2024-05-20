@@ -74,7 +74,6 @@ function EventForm({ userId, type }: EventFormProps) {
             name="categoryId"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormLabel>categoryId</FormLabel>
                 <FormControl>
                   <Dropdown
                     onChangeHandler={field.onChange}
