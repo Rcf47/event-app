@@ -171,7 +171,6 @@ function EventForm({ userId, type }: EventFormProps) {
                     <DatePicker
                       selected={field.value}
                       onChange={(date: Date) => field.onChange(date)}
-                      locale="ru-RU"
                       showTimeSelect
                       timeFormat="HH:mm"
                       timeInputLabel="Time:"
@@ -205,7 +204,6 @@ function EventForm({ userId, type }: EventFormProps) {
                     <DatePicker
                       selected={field.value}
                       onChange={(date: Date) => field.onChange(date)}
-                      locale="ru-RU"
                       showTimeSelect
                       timeFormat="HH:mm"
                       timeInputLabel="Time:"
