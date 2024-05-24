@@ -1,3 +1,4 @@
+import Card from "@/components/shared/Card/Card";
 import { IEvent } from "@/lib/database/models/event.model";
 
 type CollectionProps = {
@@ -20,12 +21,24 @@ const Collection = ({
   totalPages = 0,
   urlParamName,
 }: CollectionProps) => {
+  const hasOrderLink = collectionType === "Events_organized";
+  const hidePrice = collectionType === "My_Tickets";
   return (
     <>
       {data.length > 0 ? (
         <div className="flex flex-col items-center gap-10">
           <ul className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-10">
-            <div className="hhehh"></div>
+            {data.map((event) => {
+              return (
+                <li key={event._id} className="flex justify-center">
+                  <Card
+                    event={event}
+                    hasOrderLink={hasOrderLink}
+                    hidePrice={hidePrice}
+                  />
+                </li>
+              );
+            })}
           </ul>
         </div>
       ) : (
