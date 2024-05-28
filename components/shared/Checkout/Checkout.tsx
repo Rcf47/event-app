@@ -8,7 +8,7 @@ import {
 import { useCallback } from "react";
 
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
 const Checkout = ({ event, userId }: { event: IEvent; userId: string }) => {
   const onCheckout = async () => {
