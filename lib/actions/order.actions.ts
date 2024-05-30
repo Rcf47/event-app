@@ -2,6 +2,7 @@
 import Stripe from "stripe";
 import {
   CheckoutOrderParams,
+  CreateOrderParams,
   GetOrdersByEventParams,
   GetOrdersByUserParams,
 } from "@/types";
@@ -46,7 +47,7 @@ export const checkoutOrder = async (order: CheckoutOrderParams) => {
   }
 };
 
-export const createOrder = async (order: CheckoutOrderParams) => {
+export const createOrder = async (order: CreateOrderParams) => {
   try {
     await connectToDatabase();
 
